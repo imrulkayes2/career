@@ -1,7 +1,8 @@
 import { GoLocation } from "react-icons/go";
 import { AiOutlineDollarCircle } from "react-icons/ai";
+import { Link } from "react-router-dom";
 const Jobs = ({ jobs }) => {
-    const { logo, job_title, company_name, remote_or_onsite, job_type, salary, location } = jobs;
+    const { id, logo, job_title, company_name, remote_or_onsite, job_type, salary, location } = jobs;
     return (
         <div className="card w-96 bg-base-100 shadow-xl border-cyan-100">
             <figure className="px-10 pt-10">
@@ -18,10 +19,12 @@ const Jobs = ({ jobs }) => {
                     <h2 className="flex gap-1 align-center "> <AiOutlineDollarCircle className="text-2xl" />Salary:{salary}</h2>
                 </div>
                 <div className="card-actions">
-                    <button className="btn btn-primary">View details</button>
+                    <Link to={`/job/${id}`}>
+                        <button className="btn btn-primary">View details</button>
+                    </Link>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
